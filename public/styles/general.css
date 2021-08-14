@@ -49,13 +49,13 @@ table {
     padding: 230px 0 180px;
 }
 
-.head.text > form > div > div:nth-child(1){
+.head.text > .container >form > div > div:nth-child(1){
     clear: both;
     float: left;
-    padding-left: 17rem;
+    padding-left: 1rem;
 }
 
-.head.text >form > div > div:nth-child(1) > label{
+.head.text >.container > form > div > div:nth-child(1) > label{
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 0;
@@ -64,7 +64,7 @@ table {
     font-weight: 700;
     color: #fff;
 }
-.head.text > form > div > div:nth-child(1) > input{
+.head.text > .container> form > div > div:nth-child(1) > input{
     width: 600px;
     height: 50px;
     background-color: transparent;
@@ -77,13 +77,13 @@ table {
     box-sizing: border-box;
 }
 
-.head.text >form > div > div:nth-child(2) {
+.head.text > .container > form > div > div:nth-child(2) {
     display: flex;
     justify-content: center;
-    padding-top: 55px;
+    padding-top: 30px;
 }
 
-.head.text > form > div > div:nth-child(2) > button{
+.head.text > .container > form > div > div:nth-child(2) > button{
     cursor: pointer;
     line-height: 50px;
     padding: 0 20px;
@@ -99,9 +99,17 @@ table {
     margin-bottom: 30px;
 }
 
-
-
-
+.head.text > div.container{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1140px;
+    text-align: center;
+}
+div.container > form{
+    position: relative;
+}
 .tweet.tables{
     margin-bottom: 5rem;
 }
@@ -131,6 +139,8 @@ table {
 .tweet.tables > table > tbody > tr > td{
     padding: 20px;
 }
+
+
 
 
 

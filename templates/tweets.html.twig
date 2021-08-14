@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block title %}Pilulka tweets{% endblock %}
+{% block body_header %}
+    <div class="head text">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+{%  block body_content %}
+    {%if tweets is empty %}
+
+    {% else %}
+    <div class="tweet tables">
+        {% for tweet in tweets %}
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                      {{ tweet.date }}  {{ tweet.user }} :
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        {{ tweet.text }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock %}

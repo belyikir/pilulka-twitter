@@ -1,0 +1,21 @@
+Instalace:
+Zkontrolujte, zda váš systém splňuje následující minimální požadavky. Budete potřebovat:
+ IDE pro vývoj webových aplikací (doporučený PhpStorm + rozšíření pro Symfony),
+ PHP 8.0+,
+ Composer pro práce s projektem,
+ Moderní prohlížeč/e (Chrome, Firefox, Safari, Opera nebo Edge),
+
+Před spuštěním projektu se musíte zjistit, že jsou nainstalovány a načteny všechny závislosti popsané v souboru composer.json. To lze provést příkazem v terminálu (composer install). Po úspěšné instalaci všech závislostí můžete začít s aplikací pracovat, k tomu musíte spustit server, na kterém bude tato aplikace spuštěna. Ověřte, že se aplikace nainstalovala správně. (Využít můžete příkaz server:run dostupný v Symfony konzoli, který umožňuje spustit vývojářskou větev serveru.) Server můžete také spustit pomocí příkazu symfony server:start (symfony server:start -d - běh na pozadí). Dále otevřete zadanou adresu URL nebo spusťte tento příkaz symfony open:local. Chcete-li zobrazit logy, můžete použít příkaz symfony server:log. Po dokončení práce můžete server zastavit pomocí příkazu symfony server:stop.
+
+
+Využité postupy / zdroje:
+
+Ve složce Service/ je třída TwutterApiService, která realizuje pripoeni k TwitterApi. Pro práce s TwitterApi byla využita knihovna abraham/twitteroauth, která byla nainstalována pomocí composeru. Pro správné využití Api nutné vygenerovat osobně klíče (tokeny), které ve třídě uvedeny jako konstanty. Dále pro hledání nutných tweetu byla napsána query se specialnymi atributy (počet tweetu, aktuálnost a query pro hledání tweetu). V metodě searchTweets() je realizavan request k TwitterApi a po vrácení tweetu získání hlavní informace (user, dáte, text tweetu).
+
+TweetsController ve složce Controller při otevírání stránky získá všechny tweety a pomocí sablonovaciho systémů Twig vypisuje tyto tweety na stránku. Šablony jsou ve složce Templates/. Šablony jsou dvě: base šablona a šablona tweets, která dědí z base. Pro výpis všech tweetu byl využit fór cyklus (fóritem in array }} ).
+
+TweetsRestController ve složce Controller/Rest realizuje RestApi pro získání tweetu ve formátu JSON. V konfigurace bylo uvedeno, že Rest controllery buduo vždy začínat prefixem api/ , proto pro získání všech tweetu stačí poslat GET request na api/tweet/{query} (např. api/tweet/pilulkacz, pro hashtag nutné využít '%23' - api/tweet/%23pilulka). Kromě toho v souboru config/packages/routing.yaml byly přidány pravidla pro formát listener.
+
+Třída TweetControllerTest, která je ve složce test/Controller testuje aplikace (správný výpis informace, počet tweetu atd).
+
+
